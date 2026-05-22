@@ -30,3 +30,4 @@ If you notice some problems with this setup, please open an issue.
 
 add
 addff
+hjkl
