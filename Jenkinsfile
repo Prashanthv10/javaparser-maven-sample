@@ -11,7 +11,7 @@ pipeline {
     }
 
     stages {
-       /* stage('Checkout') {
+       /* stage('Checkout') {                   //when using pipeline script inside jenkins
             steps {
                 deleteDir()
                 git branch: 'master',
@@ -20,12 +20,12 @@ pipeline {
             }
         }*/
 
-        stage('Checkout') {
+        stage('Checkout') {          //when pipeline is from scm
             steps {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Pre check') {
           when {
             changeset "src/main/**"
         }
@@ -36,7 +36,7 @@ pipeline {
         }
     }
 }
-       stage('test') {
+       stage('Build') {
          when { environment name: 'BUILDME', value: 'yes' }
          steps {
             echo 'Hi...changes detected now building'
