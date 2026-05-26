@@ -25,24 +25,13 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Detect Changes') {
+        stage('Build') {
+            when {
+                changeset "src/main/**"
+            }
+
             steps {
-                script {
-
-                    def status = sh(
-                        script: """
-                            git diff --name-only HEAD~1 HEAD | grep '^src/main/'
-                        """,
-                        returnStatus: true
-                    )
-
-                    if (status == 0) {
-                        env.BUILDME = "yes"
-                        echo "src/main changes detected"
-                    } else {
-                        echo "No src/main changes"
-                    }
-                }
+                echo "Changes detected inside src/main"
             }
         }
        stage('test') {
