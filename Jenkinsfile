@@ -30,18 +30,20 @@ pipeline {
 			sh 'pwd'
             }
 	   }
-       stage('pre check') {
-        when {
-		  //anyOf {
-              changeset pattern: "src/main/**", comparator: "GLOB"
-		    //  changeset "src/**"
-			//}
+       stage('Check Changes') {
+          steps {
+             script {
+
+               def changed = sh(
+                  script: "git diff --name-only HEAD~1 HEAD | grep '^src/main/'",
+                  returnStatus: true
+               )
+
+               if (changed == 0) {
+                 env.BUILDME = "yes"
             }
-        steps {
-          script {
-             env.BUILDME = "Yes" // Set env variable to enable further Build Stages to reuse
+        }
     }
-} 
 } 
        stage('test') {
          when { environment name: 'BUILDME', value: 'Yes' }
