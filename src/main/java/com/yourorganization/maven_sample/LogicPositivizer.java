@@ -63,5 +63,4 @@ public class LogicPositivizer {
                         .resolve(Paths.get("output")));
     }
 }
-//added
 //added extra line
