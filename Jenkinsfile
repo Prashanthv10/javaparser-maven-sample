@@ -27,7 +27,7 @@ pipeline {
         }
        stage('present') {
          steps {
-			 pwd
+			sh 'pwd'
             }
 	   }
        stage('pre check') {
