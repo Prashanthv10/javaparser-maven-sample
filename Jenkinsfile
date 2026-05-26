@@ -25,24 +25,26 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Debug Changes') {
-          steps {
-              script {
-                  echo "Number of change sets: ${currentBuild.changeSets.size()}"
+        stage('Detect Changes') {
+            steps {
+                script {
 
-                  for (changeLogSet in currentBuild.changeSets) {
-                    for (entry in changeLogSet.items) {
+                    def status = sh(
+                        script: """
+                            git diff --name-only HEAD~1 HEAD | grep '^src/main/'
+                        """,
+                        returnStatus: true
+                    )
 
-                      echo "Commit: ${entry.commitId}"
-
-                      for (file in entry.affectedFiles) {
-                        echo "Changed file: ${file.path}"
+                    if (status == 0) {
+                        env.BUILDME = "yes"
+                        echo "src/main changes detected"
+                    } else {
+                        echo "No src/main changes"
                     }
                 }
             }
         }
-    }
-}
        stage('test') {
          when { environment name: 'BUILDME', value: 'yes' }
          steps {
