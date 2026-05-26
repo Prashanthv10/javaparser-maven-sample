@@ -37,7 +37,6 @@ pipeline {
     }
 }
 		stage('Build Artifacts') {
-		  agent { label 'demo' }
 		  when { 
 			environment name: 'BUILDME', value: 'yes' 
 		     }
