@@ -34,7 +34,7 @@ pipeline {
         when {
 		  anyOf {
               changeset "src/**"
-		      changeset "*/Jenkinsfile*"
+		      changeset "./Jenkinsfile*"
 			}
             }
         steps {
