@@ -34,7 +34,7 @@ pipeline {
         when {
 		  anyOf {
               changeset "*/*"
-		      changeset "./Jenkinsfile*"
+		      changeset "src/main/**"
 			}
             }
         steps {
@@ -47,7 +47,7 @@ pipeline {
          when { environment name: 'BUILDME', value: 'Yes' }
          steps {
             echo 'Hi...'
-            sh 'mvn clean package'
+           // sh 'mvn clean package'
               
                     }
 
