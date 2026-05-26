@@ -34,7 +34,7 @@ pipeline {
         when {
 		  anyOf {
               changeset "*/*"
-		      changeset "src/main/**"
+		      changeset "src/**"
 			}
             }
         steps {
