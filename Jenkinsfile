@@ -33,7 +33,7 @@ pipeline {
        stage('pre check') {
         when {
 		  anyOf {
-              changeset "*/*"
+              changeset "src/main/**/*.java"
 		      changeset "src/**"
 			}
             }
