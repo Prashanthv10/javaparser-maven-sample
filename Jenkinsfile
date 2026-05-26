@@ -25,12 +25,6 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Detect Changes') {
             steps {
                 script {
