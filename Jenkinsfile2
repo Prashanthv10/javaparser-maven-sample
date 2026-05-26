@@ -60,3 +60,21 @@ pipeline {
     }
 	//testing
 }
+
+
+=====================================
+
+stage('Build Artifacts') {
+    when { environment name: 'BUILDME', value: 'yes' }
+    steps {
+        script {
+            if (params.UNITTEST) {
+                unitstr = ""
+            } else {
+                unitstr = "-Dmaven.test.skip=true"
+                   }
+            echo "Building Maven Project ..." 
+            sh "mvn clean package ${unitstr}"
+        }
+    }
+}
