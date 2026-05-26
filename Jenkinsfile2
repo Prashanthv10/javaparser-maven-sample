@@ -35,18 +35,20 @@ pipeline {
 // Checks if the changeSet list is not empty
            if (currentBuild.changeSets.size() > 0) {
              echo "New changes detected in GitHub!"
-             sh 'echo "Executing next command here..."'
+                script {
+                    env.BUILDME = "Yes" // Set env variable to enable further Build Stages to reuse
+                }
          } 
            else {
             echo "No new changes found. Skipping command."
         }
     }
 }
-        steps {
+       /* steps {
           script {
              env.BUILDME = "Yes" // Set env variable to enable further Build Stages to reuse
                 }
-            } 
+            } */
        stage('test') {
          when { environment name: 'BUILDME', value: 'Yes' }
          steps {
