@@ -33,7 +33,7 @@ pipeline {
        stage('pre check') {
         when {
 		  anyOf {
-              changeset "src/**"
+              changeset "*/*"
 		      changeset "./Jenkinsfile*"
 			}
             }
