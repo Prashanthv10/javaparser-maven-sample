@@ -33,7 +33,7 @@ pipeline {
        stage('pre check') {
         when {
 		  //anyOf {
-              changeset "src/main/resources/**"
+              changeset pattern: "src/main/**", comparator: "GLOB"
 		    //  changeset "src/**"
 			//}
             }
