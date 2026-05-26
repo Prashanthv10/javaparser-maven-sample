@@ -25,26 +25,13 @@ pipeline {
                 checkout scm
             }
         }
-       stage('present') {
+       stage('Debug Changes') {
          steps {
-			sh 'pwd'
-            }
+            script {
+             echo "Number of change sets: ${currentBuild.changeSets.size()}"
+			}
+		 }
 	   }
-       stage('Check Changes') {
-          steps {
-             script {
-
-               def changed = sh(
-                  script: "git diff --name-only HEAD~1 HEAD | grep '^src/main/'",
-                  returnStatus: true
-               )
-
-               if (changed == 0) {
-                 env.BUILDME = "yes"
-            }
-        }
-    }
-} 
        stage('test') {
          when { environment name: 'BUILDME', value: 'yes' }
          steps {
