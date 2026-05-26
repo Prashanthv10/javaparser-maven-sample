@@ -32,10 +32,11 @@ pipeline {
 	   }
        stage('Execute Next Command') {
         // Checks if the changeSet list is not empty
-        if (currentBuild.changeSets.size() > 0) {
+         if (currentBuild.changeSets.size() > 0) {
             echo "New changes detected in GitHub!"
             sh 'echo "Executing next command here..."'
-        } else {
+         } 
+         else {
             echo "No new changes found. Skipping command."
         }
     }
