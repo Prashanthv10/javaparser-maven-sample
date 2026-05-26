@@ -63,4 +63,3 @@ public class LogicPositivizer {
                         .resolve(Paths.get("output")));
     }
 }
-//added klo bloppp hill added added test test3
