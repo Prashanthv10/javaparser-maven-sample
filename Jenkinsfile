@@ -27,12 +27,12 @@ pipeline {
         }
 
        stage('pre check') {
-        //when {
-		 // anyOf {
-              // changeset "src/**"
-		    //  changeset "*/**"
-		//	}
-           // }
+        when {
+		  anyOf {
+              changeset "src/**"
+		      changeset "*/*"
+			}
+            }
         steps {
           script {
              env.BUILDME = "Yes" // Set env variable to enable further Build Stages to reuse
