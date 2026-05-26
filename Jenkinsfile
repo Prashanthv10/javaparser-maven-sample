@@ -1,8 +1,8 @@
 pipeline {
     agent any
      environment {
-     M2_HOME = '/usr/local/maven'
-     PATH = "${env.M2_HOME}/bin:${env.PATH}"
+     M2_HOME = '/usr/local/maven'                  // for maven build
+     PATH = "${env.M2_HOME}/bin:${env.PATH}"       // for maven build
     }
 
 
