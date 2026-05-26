@@ -42,7 +42,7 @@ pipeline {
 		     }
 		  steps {
 			echo "Building Jar Component ..."
-			dir("./src/main") {
+			dir("./src") {
 				sh "mvn clean package"
 			}
 		}
