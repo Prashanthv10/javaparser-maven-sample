@@ -25,7 +25,11 @@ pipeline {
                 checkout scm
             }
         }
-
+       stage('present') {
+         steps {
+			 pwd
+            }
+	   }
        stage('pre check') {
         when {
 		  anyOf {
