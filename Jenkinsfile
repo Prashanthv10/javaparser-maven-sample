@@ -46,7 +46,7 @@ pipeline {
     }
 } 
        stage('test') {
-         when { environment name: 'BUILDME', value: 'Yes' }
+         when { environment name: 'BUILDME', value: 'yes' }
          steps {
             echo 'Hi...'
            // sh 'mvn clean package'
