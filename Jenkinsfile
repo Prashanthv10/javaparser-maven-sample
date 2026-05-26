@@ -26,18 +26,20 @@ pipeline {
             }
         }
         stage('Build') {
-            when {
-                changeset "src/main/**"
-            }
-
-            steps {
-                echo "Changes detected inside src/main"
-            }
+          when {
+            changeset "src/main/**"
         }
+         steps {
+           script {
+            env.BUILDME = "yes"
+            echo "Changes detected in src/main"
+        }
+    }
+}
        stage('test') {
          when { environment name: 'BUILDME', value: 'yes' }
          steps {
-            echo 'Hi...'
+            echo 'Hi...changes detected now building'
            // sh 'mvn clean package'
               
                     }
