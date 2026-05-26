@@ -32,10 +32,10 @@ pipeline {
 	   }
        stage('pre check') {
         when {
-		  anyOf {
-              changeset "src/main/**/*.java"
-		      changeset "src/**"
-			}
+		  //anyOf {
+              changeset "src/main/resources/**"
+		    //  changeset "src/**"
+			//}
             }
         steps {
           script {
