@@ -4,6 +4,13 @@ pipeline {
      M2_HOME = '/usr/local/maven'                  // for maven build
      PATH = "${env.M2_HOME}/bin:${env.PATH}"       // for maven build
     }
+	 parameters {
+        booleanParam(
+            name: 'UNITTEST', 
+            defaultValue: true, 
+            description: 'Check this box to execute tests during this build'
+        )
+    }
 
 
     triggers {
@@ -36,7 +43,7 @@ pipeline {
         }
     }
 }
-		stage('Build Artifacts') {
+		/* stage('Build Artifacts') {
 		  when { 
 			environment name: 'BUILDME', value: 'yes' 
 		     }
@@ -44,6 +51,20 @@ pipeline {
 			echo "Building Jar Component ..."
 				sh "mvn clean package"
 		}
+		} */
+		stage('Build Artifacts') {
+			when { environment name: 'BUILDME', value: 'yes' }
+			steps {
+				script {
+					if (params.UNITTEST) {
+						unitstr = ""
+					} else {
+						unitstr = "-Dmaven.test.skip=true"
+						   }
+					echo "Building Maven Project ..." 
+					sh "mvn clean package ${unitstr}"
+				}
+			}
 		}
 }
 	//testing
