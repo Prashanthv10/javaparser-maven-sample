@@ -61,7 +61,7 @@ pipeline {
 	//testing
 }
 
-ops
+/* ops
 =====================================
 
 stage('Build Artifacts') {
@@ -77,5 +77,5 @@ stage('Build Artifacts') {
             sh "mvn clean package ${unitstr}"
         }
     }
-}
+} */
 //added
