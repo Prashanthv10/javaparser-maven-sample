@@ -30,20 +30,6 @@ pipeline {
 			sh 'pwd'
             }
 	   }
-       stage('Execute Next Command') {
-         steps {       
-// Checks if the changeSet list is not empty
-           if (currentBuild.changeSets.size() > 0) {
-             echo "New changes detected in GitHub!"
-                script {
-                    env.BUILDME = "Yes" // Set env variable to enable further Build Stages to reuse
-                }
-         } 
-           else {
-            echo "No new changes found. Skipping command."
-        }
-    }
-}
        /* steps {
           script {
              env.BUILDME = "Yes" // Set env variable to enable further Build Stages to reuse
