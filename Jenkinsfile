@@ -10,6 +10,11 @@ pipeline {
             defaultValue: true, 
             description: 'Check this box to execute tests during this build'
         )
+		booleanParam(
+            name: 'CODEANALYSIS', 
+            defaultValue: true, 
+            description: 'Check this box to execute tests during this build'
+        )
     }
 
 
@@ -66,6 +71,22 @@ pipeline {
 				}
 			}
 		}
+		stage('Code Coverage')
+			{
+			    when {
+			        allOf {
+			            expression { return params.CODEANALYSIS }
+			            environment name: 'BUILDME', value: 'yes'
+			        }
+			    }
+			
+			    steps {
+			        echo "Running Code Coverage ..."
+			            sh "mvn org.jacoco:jacoco-maven-plugin:0.5.5.201112152213:prepare-agent"
+			       
+			    }
+			}
+
 }
 	//testing
 }
