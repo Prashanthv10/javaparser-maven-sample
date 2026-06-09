@@ -82,9 +82,8 @@ pipeline {
 			
 			    steps {
 			        echo "Running Code Coverage ..."
-					dir ("./src/main"){
+					//dir ("./src/main")
 			            sh "mvn org.jacoco:jacoco-maven-plugin:0.5.5.201112152213:prepare-agent"
-					}
 			    }
 			}
 
