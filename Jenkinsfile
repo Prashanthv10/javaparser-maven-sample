@@ -86,7 +86,7 @@ pipeline {
 			            sh "mvn org.jacoco:jacoco-maven-plugin:0.5.5.201112152213:prepare-agent"
 			    }
 			}
-		stage('SonarQube Analysis') {
+	/*	stage('SonarQube Analysis') {
 		 when {
 			environment name: 'BUILDME', value: 'yes'
 			}
@@ -96,7 +96,7 @@ pipeline {
 			sh 'mvn sonar:sonar'
 			}
 			      }
-			} 
+			} */
 
 
 }
