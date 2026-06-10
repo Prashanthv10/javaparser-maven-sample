@@ -1,12 +1,19 @@
 package com.yourorganization.maven_sample;
 
-public class Calculator {
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    public int add(int a, int b) {
-        return a + b;
+public class CalculatorTest {
+
+    @Test
+    void testAdd() {
+        Calculator calculator = new Calculator();
+        assertEquals(5, calculator.add(2, 3));
     }
 
-    public int multiply(int a, int b) {
-        return a * b;
+    @Test
+    void testMultiply() {
+        Calculator calculator = new Calculator();
+        assertEquals(6, calculator.multiply(2, 3));
     }
 }
