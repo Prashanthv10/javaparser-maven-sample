@@ -93,7 +93,7 @@ pipeline {
 			
 			steps {
 			withSonarQubeEnv('demosonarqube') {
-			sh 'mvn sonar:sonar'
+			sh 'mvn sonar:sonar -Dsonar.token=sqa_4a4516de9de5a9be3767420f72b4e0336e0bc474'
 			}
 			      }
 			} 
