@@ -23,6 +23,11 @@ pipeline {
     }
 
     stages {
+		stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
        /* stage('Checkout') {                   //when using pipeline script inside jenkins
             steps {
                 deleteDir()
