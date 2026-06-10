@@ -44,7 +44,8 @@ pipeline {
          steps {
            script {
             env.BUILDME = "yes"
-            echo "Changes detected in src/main"
+           // echo "Changes detected in src/main"
+            echo "Changes detected in src"
         }
     }
 }
