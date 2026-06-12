@@ -10,4 +10,26 @@ public class Calculator {
         return a * b;
     }
 }
+public void method1() {
+    System.out.println("test");
+    System.out.println("test");
+    System.out.println("test");
+}
+
+public void method2() {
+    System.out.println("test");
+    System.out.println("test");
+    System.out.println("test");
+}
+public void method1() {
+    System.out.println("test");
+    System.out.println("test");
+    System.out.println("test");
+}
+
+public void method2() {
+    System.out.println("test");
+    System.out.println("test");
+    System.out.println("test");
+}
 //added this file 
