@@ -10,5 +10,6 @@ public class Calculator {
         return a * b;
     }
 }
-
+String value = null;
+value.length();
 //added this file 
