@@ -9,17 +9,7 @@ public class Calculator {
     public int multiply(int a, int b) {
         return a * b;
     }
-    public void method1() {
-    System.out.println("test");
-    System.out.println("test");
-    System.out.println("test");
-}
 
-public void method2() {
-    System.out.println("test");
-    System.out.println("test");
-    System.out.println("test");
-}
 }
 
 //added this file 
