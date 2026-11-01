@@ -49,6 +49,7 @@ public class LogicPositivizer {
                         n.setThenStmt(elseStmt);
                         n.setElseStmt(thenStmt);
                         binaryExpr.setOperator(BinaryExpr.Operator.EQUALS);
+                        binary
                     }
                 });
                 return super.visit(n, arg);
