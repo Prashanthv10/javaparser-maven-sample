@@ -1,6 +1,10 @@
 JavaParser and Maven sample
 ---
 
+
+updated pom.xml (20-10-2026 version issues)
+
+
 This fully working sample Maven project parses and generates code with [JavaParser](http://www.javaparser.org).
 
 This sample is targeted at people without [Maven](https://maven.apache.org/) experience.

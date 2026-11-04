@@ -4,8 +4,6 @@ pipeline {
      M2_HOME = '/usr/local/maven'                  // for maven build
      PATH = "${env.M2_HOME}/bin:${env.PATH}"       // for maven build
     }
-
-
     triggers {
         githubPush()
     }
@@ -40,11 +38,10 @@ pipeline {
          when { environment name: 'BUILDME', value: 'yes' }
          steps {
             echo 'Hi...changes detected now building'
-           // sh 'mvn clean package'
+            sh 'mvn clean package'
+            //mvn
               
                     }
-
     }
 }
-	//testing
 }
